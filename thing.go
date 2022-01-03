@@ -1,13 +1,13 @@
 package thing
 
-type Thing struct {
-	value interface{}
+type Thing[T any] struct {
+	value T
 }
 
-func MakeThing(value interface{}) Thing {
-	return Thing{value: value}
+func MakeThing[T any](value T) Thing[T] {
+	return Thing[T]{value: value}
 }
 
-func (t *Thing) Value() interface{} {
+func (t *Thing[T]) Value() T {
 	return t.value
 }
